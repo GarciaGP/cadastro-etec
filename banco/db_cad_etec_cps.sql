@@ -7,5 +7,6 @@ create table cadastro
      cep numeric(8) not null,
      endereco varchar(50) not null,
      bairro varchar(30) not null,
-     cidade varchar(30) not null);
-     
+     cidade varchar(30) not null,
+     latitude double not null,
+     longitude double not null);
