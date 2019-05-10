@@ -14,21 +14,24 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="")
+@Table(name="etec")
 public class Etec {
 	
 	@Id
 	@GeneratedValue
-	@Column(name="")
-	private int id;
+	@Column(name="id")
+	private Long id;
 	
-	@Column(name="")
+	@Column(name="nome")
 	private String nome;
 	
-	@Column(name="")
+	@Column(name="cep")
 	private String cep;
-	private String endereco;
-	private String bairro;
-	private String cidade;
+	
+	@Column(name="latitude")
+	private double latitude;
+	
+	@Column(name="longitude")
+	private double longitude;
 
 }
