@@ -6,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-
+import br.com.etechoracio.common.model.BaseORM;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +14,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name="etec")
-public class Etec {
+public class Etec extends BaseORM{
 	
 	@Id
 	@GeneratedValue
