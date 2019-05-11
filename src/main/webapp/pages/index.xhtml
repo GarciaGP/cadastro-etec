@@ -5,17 +5,27 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Projeto GR</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Projeto GR</title>
 </h:head>
 <h:body>
 
-<h:panelGrid columns="2">
-<p:button outcome="productDetail" value="Novo" icon="pi pi-star" style="margin-right:20px;">
-    <f:param name="productId" value="10" />
-</p:button>
+<p:dialog header="Modal Dialog" widgetVar="insertdlg" modal="true" height="100">
+    <h:outputText value="This is a Modal Dialog." />
+</p:dialog> 
 
-</h:panelGrid>
 
+	<h:panelGrid columns="2">
+		<p:commandButton value="Novo" icon="pl pl-plus"
+			style="margin-right:20px;" onclick="PF('insertdlg').show();" />
+
+		<p:dialog widgetVar="dgLoader" modal="true" resizable="false"
+			showHeader="false">
+			<p:graphicImage name="ajax-loader.gif" library="resources" />
+		</p:dialog>
+
+		<p:ajaxStatus onstart="PF('dgLoader').show()"
+			onsuccess="PF('dgLoader').hide()"></p:ajaxStatus>
+	</h:panelGrid>
 </h:body>
 </html>
