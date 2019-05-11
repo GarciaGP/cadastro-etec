@@ -10,8 +10,6 @@
 </h:head>
 <h:body>
 
-<<<<<<< HEAD
-
 	<p:dialog header="Modal Dialog" widgetVar="insertdlg" modal="true"
 		height="100">
 		<h:outputText value="This is a Modal Dialog." />
@@ -24,9 +22,6 @@
 
 <p:inputMask onblur="pesquisacep(this.value)" />
 
-
-=======
->>>>>>> 7d77f2ea3b40898893c1ee70744866e49738d41c
 	<h:panelGrid columns="2">
 		<p:dialog widgetVar="dgLoader" modal="true" resizable="false"
 			showHeader="false">
@@ -49,7 +44,7 @@
 				<p:inputText id="codigo" />
 				
 				<h:outputText value="CEP: " style="margin-right: 5px;" />
-				<p:inputText id="cep" />
+				<p:inputText id="cep" onblur="pesquisacep(this.value)" />
 				
 				<h:outputText value="Endereço: " style="margin-right: 5px;" />
 				<p:inputText id="logradouro" />
