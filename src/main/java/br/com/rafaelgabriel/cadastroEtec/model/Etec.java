@@ -24,6 +24,18 @@ public class Etec extends BaseORM{
 	@Column(name="nome")
 	private String nome;
 	
+	@Column(name="codigo")
+	private int codigo;
+	
+	@Column(name="endereco")
+	private String logradouro;
+	
+	@Column(name="cidade")
+	private String cidade;
+	
+	@Column(name="bairro")
+	private String bairro;
+	
 	@Column(name="cep")
 	private String cep;
 	
