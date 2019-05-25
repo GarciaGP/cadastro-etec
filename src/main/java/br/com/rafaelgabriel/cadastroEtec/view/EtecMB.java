@@ -1,8 +1,5 @@
 package br.com.rafaelgabriel.cadastroEtec.view;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -28,22 +25,14 @@ public class EtecMB extends BaseMB {
 	private Etec edit = new Etec();
 
 	public void onSave() {
-		etecSB.save(edit);
-		showInsertMessage();
+		try {
+			etecSB.save(edit);
+			showInsertMessage();
+
+		} catch (Exception e) {
+			showErrorMessage(e.getMessage());
+		}
+
 	}
 
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public void saveMessage() {
-		FacesContext context = FacesContext.getCurrentInstance();
-
-		context.addMessage(null, new FacesMessage("Successful", "Your message: " + message));
-		context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
-	}
 }

@@ -11,23 +11,30 @@ import br.com.rafaelgabriel.cadastroEtec.dao.EtecDAO;
 import br.com.rafaelgabriel.cadastroEtec.model.Etec;
 
 @Service
-public class EtecSB extends BaseSB{
-	
+public class EtecSB extends BaseSB {
+
 	private EtecDAO etecDAO;
-	
+
 	@Override
-	protected void postConstructImpl()
-	{
+	protected void postConstructImpl() {
 		etecDAO = getDAO(EtecDAO.class);
 	}
-	
-	public List<Etec> findAll(){
+
+	public List<Etec> findAll() {
 		return etecDAO.findAll();
 	}
-	
+
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void save(Etec etec) {
-		etecDAO.save(etec);
-		
+	public void save(Etec etec) throws Exception {
+
+		List<Etec> existentes = etecDAO.findByNomeOrCodigo(etec.getNome(), etec.getCodigo());
+
+		if (!existentes.isEmpty()) {
+			throw new Exception("Erro: Instituição duplicada");
+		} else {
+			etecDAO.save(etec);
+		}
+
 	}
+
 }
