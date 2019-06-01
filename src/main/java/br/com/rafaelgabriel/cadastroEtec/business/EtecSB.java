@@ -23,6 +23,7 @@ public class EtecSB extends BaseSB {
 	public List<Etec> findAll() {
 		return etecDAO.findAll();
 	}
+	
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void save(Etec etec) throws Exception {
@@ -35,6 +36,17 @@ public class EtecSB extends BaseSB {
 			etecDAO.save(etec);
 		}
 
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void remove(Etec etec) {
+		etecDAO.delete(etec);
+
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void update(Etec etec) {
+		
 	}
 
 }

@@ -1,5 +1,7 @@
 package br.com.rafaelgabriel.cadastroEtec.view;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -18,9 +20,15 @@ import lombok.Setter;
 public class EtecMB extends BaseMB {
 
 	private String message;
+	Etec etecAdd = new Etec();
+	private List<Etec> registros;
 
 	@Autowired
 	private EtecSB etecSB;
+
+	protected void postConstruct() {
+		registros = etecSB.findAll();
+	}
 
 	private Etec edit = new Etec();
 
@@ -33,6 +41,16 @@ public class EtecMB extends BaseMB {
 			showErrorMessage(e.getMessage());
 		}
 
+	}
+
+	public void onUpdate(Etec etec){
+		
+	} 
+
+	public void onRemove(Etec etec) {
+		etecSB.remove(etec);
+		registros = etecSB.findAll();
+		showDeleteMessage();
 	}
 
 }
